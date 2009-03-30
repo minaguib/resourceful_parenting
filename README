@@ -1,13 +1,58 @@
 ResourcefulParenting
 ====================
 
-A rails plugin that makes working with nested resources easier
+A rails plugin that makes working with nested resources easier.
+
+It provides the following methods to your RESTful controllers:
+
+ * parent : Returns the most immediate parent resource
+   * parent(-1)       : Same as parent
+   * parent(-2)       : Returns the parent resource's parent
+   * parent(N)        : Returns the Nth parent resource
+   * parent(0)        : Returns the top level parent
+ * parents            : Returns an array of all the parent resources
+ * polymorphic_p_url  : Same as calling polymorphic_url but adding parents to the list
+ * polymorphic_p_path : Same as calling polymorphic_path but adding parents to the list
+
+polymotphic_p_url and polymorphic_p_path are automatically exposed as helper methods for usage in the views.  Feel free to expose the others via helper_method in your ApplicationController
 
 
 Example
 =======
 
-Example goes here.
+Assuming the classical problem of a comments resource nested under several different parent resources:
 
+  class CommentsController
+
+    def create
+      # regular create work, then:
+
+      redirect_to parent # Back to the parent's show page
+		# OR
+		redirect_to polymorphic_p_url(@comment) # Back to /parent/ID/comments/ID
+		# OR
+		redirect_to polymorphic_p_url(:comments) # Back to /parent/ID/comments
+
+    end
+
+  end
+
+
+Todo
+====
+
+A respectable test suite.   This plugin was just a bunch of ApplicationController methods I decided to extract.
+
+
+Notes
+=====
+
+There is similar functionality in other plugins, however they often do lost more which I didn't need.
+
+This plugin was inspired after watching Ryan Bates hand-roll a custom method for doing this for the Nth time.
+
+
+Copyright
+=========
 
 Copyright (c) 2009 Mina Naguib, released under the MIT license
