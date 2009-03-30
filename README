@@ -53,7 +53,7 @@ A respectable test suite.   This plugin was just a bunch of ApplicationControlle
 Notes
 =====
 
-There is similar functionality in other plugins, however they often do lost more which I didn't need.
+There is similar functionality in other plugins, however they often do lots more which I didn't need.
 
 This plugin was inspired after watching Ryan Bates hand-roll a custom method for doing this for the Nth time.
 
