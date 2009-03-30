@@ -28,16 +28,16 @@ Example
 
 Assuming the classical problem of a comments resource nested under several different parent resources:
 
-  class CommentsController
+  class CommentsController < ApplicationController
 
     def create
       # regular create work, then:
 
       redirect_to parent # Back to the parent's show page
       # OR
-      redirect_to polymorphic_p_url(@comment) # Back to /parent/ID/comments/ID
+      redirect_to polymorphic_p_url(@comment) # Back to /parents/ID/comments/ID
       # OR
-      redirect_to polymorphic_p_url(:comments) # Back to /parent/ID/comments
+      redirect_to polymorphic_p_url(:comments) # Back to /parents/ID/comments
 
     end
 
