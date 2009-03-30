@@ -17,6 +17,12 @@ It provides the following methods to your RESTful controllers:
 polymotphic_p_url and polymorphic_p_path are automatically exposed as helper methods for usage in the views.  Feel free to expose the others via helper_method in your ApplicationController
 
 
+Installation
+============
+
+./script/plugin install git://github.com/minaguib/resourceful_parenting.git
+
+
 Example
 =======
 
@@ -28,10 +34,10 @@ Assuming the classical problem of a comments resource nested under several diffe
       # regular create work, then:
 
       redirect_to parent # Back to the parent's show page
-		# OR
-		redirect_to polymorphic_p_url(@comment) # Back to /parent/ID/comments/ID
-		# OR
-		redirect_to polymorphic_p_url(:comments) # Back to /parent/ID/comments
+      # OR
+      redirect_to polymorphic_p_url(@comment) # Back to /parent/ID/comments/ID
+      # OR
+      redirect_to polymorphic_p_url(:comments) # Back to /parent/ID/comments
 
     end
 
