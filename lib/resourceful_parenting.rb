@@ -78,7 +78,7 @@ module ResourcefulParenting; module ActionController; module Base;
         path_parts.each_with_index do |part, i|
           next unless part =~ /^[a-z_]+$/
           singular = part.singularize or next
-          info = @_parents_info.detect{|i| i[:singular] == singular}
+          info = @_parents_info.detect{|p| p[:singular] == singular}
           info[:order] = i if info
         end
         @_parents_info = @_parents_info.sort_by{|i| i[:order]}
