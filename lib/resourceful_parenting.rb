@@ -60,7 +60,7 @@ module ResourcefulParenting; module ActionController; module Base;
         #
         @_parents_info = []
         request.path_parameters.each do |key, value|
-          next unless key =~ /^(.+)_id$/
+          next unless key.to_s.match(/^(.+)_id$/)
           singular = $1.singularize
           @_parents_info << {
             :order    =>  nil,
