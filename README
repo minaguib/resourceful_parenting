@@ -20,7 +20,9 @@ polymotphic_p_url and polymorphic_p_path are automatically exposed as helper met
 Installation
 ============
 
-./script/plugin install git://github.com/minaguib/resourceful_parenting.git
+Add to your Gemfile:
+
+  gem 'resourceful_parenting'
 
 
 Example
